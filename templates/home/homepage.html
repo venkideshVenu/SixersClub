@@ -1,4 +1,87 @@
-{% extends 'home/base.html' %} {% block body_block %} {% load static %}
+{% extends 'home/base.html' %}{% load static %} {% block body_block %}
+<link
+href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+rel="stylesheet"
+/>
+
+    <!-- Bootstrap core CSS -->
+    <link
+      href="{% static 'home/vendor/bootstrap/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+    />
+<!-- Additional CSS Files -->
+<link
+  rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+  integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+  crossorigin="anonymous"
+/>
+<link
+  href="{% static 'home/css/templatemo-chain-app-dev.css' %}"
+  rel="stylesheet"
+/>
+<link href="{% static 'home/css/animate.min.css' %}" rel="stylesheet" />
+<link href="{% static 'home/css/owl.css' %}" rel="stylesheet" />
+
+<!-- ***** Main Banner ***** -->
+<div
+  class="main-banner wow fadeIn"
+  id="top"
+  data-wow-duration="1s"
+  data-wow-delay="0.5s"
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-lg-6 align-self-center">
+            <div
+              class="left-content show-up header-text wow fadeInLeft"
+              data-wow-duration="1s"
+              data-wow-delay="1s"
+            >
+              <div class="row">
+                <div class="col-lg-12">
+                  <h2>Welcome to SixersClub</h2>
+                  <p>
+                    SixersClub is your destination for the most exciting cricket
+                    tournaments. Register, join teams, and experience the thrill
+                    of competitive cricket at all levels. Stay updated with the
+                    latest news, match schedules, and more!
+                  </p>
+                </div>
+                <div class="col-lg-12">
+                  <div class="white-button first-button scroll-to-section">
+                    <a href="#contact"
+                      >Get Involved <i class="fa fa-cricket-bat"></i
+                    ></a>
+                  </div>
+                  <div class="white-button scroll-to-section">
+                    <a href="#contact"
+                      >See Tournaments <i class="fa fa-calendar"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div
+              class="right-image wow fadeInRight"
+              data-wow-duration="1s"
+              data-wow-delay="0.5s"
+            >
+              <img
+                src="{% static 'home/images/banner.jpg' %}"
+                alt="Cricket Match Banner"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div id="tournaments" class="services section">
   <div class="container">
@@ -10,7 +93,7 @@
           data-wow-delay="0.5s"
         >
           <h4>Upcoming <em>Tournaments</em></h4>
-          <img src="assets/images/heading-line-dec.png" alt="" />
+          <img src="{% static 'home/images/heading-line-dec.png' %}"alt="" />
           <p>
             Check out our exciting lineup of cricket tournaments. From T20
             blasts to Test matches, we've got it all!
@@ -91,7 +174,7 @@
       <div class="col-lg-6 align-self-center">
         <div class="section-heading">
           <h4>Teams & <em>Players</em></h4>
-          <img src="assets/images/heading-line-dec.png" alt="" />
+          <img src="{% static 'home/images/heading-line-dec.png' %}" alt="" />
           <p>
             Discover the teams and players participating in our tournaments.
             From seasoned pros to rising stars, meet the cricketers who make our
@@ -134,134 +217,13 @@
   </div>
 </div>
 
-<div id="scoreboard" class="the-clients">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 offset-lg-2">
-        <div class="section-heading">
-          <h4>Live <em>Scoreboard</em></h4>
-          <img src="assets/images/heading-line-dec.png" alt="" />
-          <p>
-            Stay updated with live scores from ongoing matches. Never miss a
-            moment of cricket action!
-          </p>
-        </div>
-      </div>
-      <div class="col-lg-12">
-        <div class="naccs">
-          <div class="grid">
-            <div class="row">
-              <div class="col-lg-7 align-self-center">
-                <div class="menu">
-                  <div class="first-thumb active">
-                    <div class="thumb">
-                      <div class="row">
-                        <div class="col-lg-4 col-sm-4 col-12">
-                          <h4>Team A vs Team B</h4>
-                          <span class="date">T20 Blast - Match 1</span>
-                        </div>
-                        <div class="col-lg-4 col-sm-4 d-none d-sm-block">
-                          <span class="category">Ongoing</span>
-                        </div>
-                        <div class="col-lg-4 col-sm-4 col-12">
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <span class="rating">4.8</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="thumb">
-                      <div class="row">
-                        <div class="col-lg-4 col-sm-4 col-12">
-                          <h4>Team C vs Team D</h4>
-                          <span class="date">ODI Series - Match 2</span>
-                        </div>
-                        <div class="col-lg-4 col-sm-4 d-none d-sm-block">
-                          <span class="category">Upcoming</span>
-                        </div>
-                        <div class="col-lg-4 col-sm-4 col-12">
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <span class="rating">4.5</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-5">
-                <ul class="nacc">
-                  <li class="active">
-                    <div>
-                      <div class="thumb">
-                        <div class="row">
-                          <div class="col-lg-12">
-                            <div class="client-content">
-                              <img src="assets/images/quote.png" alt="" />
-                              <p>
-                                "Team A: 120/3 (15 overs)<br />Team B: Yet to
-                                bat<br />Team A won the toss and elected to bat
-                                first."
-                              </p>
-                            </div>
-                            <div class="down-content">
-                              <img
-                                src="{% static 'home/images/person1.png' %}"
-                                alt=""
-                              />
-                              <div class="right-content">
-                                <h4>David Warner</h4>
-                                <span>Top Scorer - 65 (40)</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div>
-                      <div class="thumb">
-                        <div class="row">
-                          <div class="col-lg-12">
-                            <div class="client-content">
-                              <img src="{% static 'home/images/quote.png' %}" alt="" />
-                              <p>
-                                "Match starts in 2 hours. Stay tuned for live
-                                updates!"
-                              </p>
-                            </div>
-                            <div class="down-content">
-                              <img
-                                src="{% static 'home/images/person2.png' %}"
-                                alt=""
-                              />
-                              <div class="right-content">
-                                <h4>Virat Kohli</h4>
-                                <span>Captain, Team C</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
+
+<!-- Scripts -->
+<script src="{% static 'home/vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'home/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'home/js/owl-carousel1.js' %}"></script>
+<script src="{% static 'home/js/animation.js' %}"></script>
+<script src="{% static 'home/js/imagesloaded.js' %}"></script>
+<script src="{% static 'home/js/popup.js' %}"></script>
 {% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'tournament/base.html' %}
+
+{% block body_block %}
+<div class="container mt-4">
+    <h2>{{ tournament.name }}</h2>
+    <h4 class="text-muted">{{ tournament.get_tournament_type_display }}</h4>
+    <p>{{ tournament.description }}</p>
+    <p><strong>Start Date:</strong> {{ tournament.start_date }}</p>
+    <p><strong>End Date:</strong> {{ tournament.end_date }}</p>
+    <p><strong>Registration Deadline:</strong> {{ tournament.registration_deadline }}</p>
+    
+    <a href="{% url 'tournament_registration' tournament.id %}" class="btn btn-primary">Register for Tournament</a>
+</div>
+{% endblock %}
