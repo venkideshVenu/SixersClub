@@ -1,329 +1,339 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js" lang="zxx">
   <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <!-- Meta Tags -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="Site keywords here" />
     <meta
       name="description"
       content="SixersClub - Cricket Tournament Hosting"
     />
-    <meta name="Venkidesh Veny" content="Cricket Tournaments" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="icon" type="image/x-icon" href="{% static 'home/images/favicon.ico' %}">
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
-      rel="stylesheet"
+    <meta name="copyright" content="" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
+    <!-- Title -->
     <title>SixersClub - Cricket Tournaments</title>
 
-    <!-- Bootstrap core CSS -->
+    <!-- Favicon -->
     <link
-      href="{% static 'home/vendor/bootstrap/css/bootstrap.min.css' %}"
+      rel="icon"
+      type="image/x-icon"
+      href="{% static 'home/images/favicon.ico' %}"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Additional CSS Files -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'home/css/bootstrap.min.css' %}" />
+    <!-- Nice Select CSS -->
+    <link rel="stylesheet" href="{% static 'home/css/nice-select.css' %}" />
+    <!-- Font Awesome CSS -->
     <link
       rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-      crossorigin="anonymous"
+      href="{% static 'home/css/font-awesome.min.css' %}"
     />
-    <link
-      href="{% static 'home/css/templatemo-chain-app-dev.css' %}"
-      rel="stylesheet"
-    />
-    <link href="{% static 'home/css/animated.css' %}" rel="stylesheet" />
-    <link href="{% static 'home/css/owl.css' %}" rel="stylesheet" />
+    <!-- icofont CSS -->
+    <link rel="stylesheet" href="{% static 'home/css/icofont.css' %}" />
+    <!-- Slicknav -->
+    <link rel="stylesheet" href="{% static 'home/css/slicknav.min.css' %}" />
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="{% static 'home/css/owl-carousel.css' %}" />
+    <!-- Datepicker CSS -->
+    <link rel="stylesheet" href="{% static 'home/css/datepicker.css' %}" />
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="{% static 'home/css/animate.min.css' %}" />
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet" href="{% static 'home/css/magnific-popup.css' %}" />
+
+    <!-- Medipro CSS -->
+    <link rel="stylesheet" href="{% static 'home/css/normalize.css' %}" />
+    <link rel="stylesheet" href="{% static 'home/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'home/css/responsive.css' %}" />
   </head>
-
   <body>
-    <!-- ***** Preloader Start ***** -->
-    <div id="js-preloader" class="js-preloader">
-      <div class="preloader-inner">
-        <span class="dot"></span>
-        <div class="dots">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+    <!-- Preloader -->
+    <div class="preloader">
+      <div class="loader">
+        <div class="loader-outter"></div>
+        <div class="loader-inner"></div>
       </div>
     </div>
-    <!-- ***** Preloader End ***** -->
+    <!-- End Preloader -->
 
-    <!-- ***** Header Area Start ***** -->
-    <header
-      class="header-area header-sticky wow slideInDown"
-      data-wow-duration="0.75s"
-      data-wow-delay="0s"
-    >
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <nav class="main-nav">
-              <!-- ***** Logo Start ***** -->
-              <a href="{% url 'homepage' %}" class="logo">
-                <img
-                  src="{% static 'home/images/SixersClub.png' %}"
-                  alt="SixersClub Logo"
-                />
-              </a>
-              <!-- ***** Logo End ***** -->
-              <!-- ***** Menu Start ***** -->
-              <ul class="nav">
-                <li class="scroll-to-section">
-                  <a href="{% url 'homepage' %}" class="active">Home</a>
-                </li>
-                <li class="scroll-to-section">
-                  <a href="#tournaments">Tournaments</a>
-                </li>
-                <li class="scroll-to-section">
-                  <a href="#gallery">Gallery</a>
-                </li>
-                <li class="scroll-to-section">
-                  <a href="#contact">Contact</a>
-                </li>
-                <li class="scroll-to-section">
-                  <a href="#about">About Us</a>
-                </li>
-                <li>
-                  <div class="gradient-button">
-                    <a id="modal_trigger" href="#modal"
-                      ><i class="fa fa-sign-in-alt"></i> Sign In Now</a
-                    >
-                  </div>
-                </li>
-              </ul>
-              <a class="menu-trigger">
-                <span>Menu</span>
-              </a>
-              <!-- ***** Menu End ***** -->
-            </nav>
+    <!-- Header Area -->
+    <header class="header">
+      <!-- Header Inner -->
+      <div class="header-inner">
+        <div class="container">
+          <div class="inner">
+            <div class="row">
+              <div class="col-lg-3 col-md-3 col-12">
+                <!-- Start Logo -->
+                <div class="logo">
+                  <a href="index.html"
+                    ><img
+                      src="{% static 'home/images/SixersClub1.png' %}"
+                      alt="SixersClub Logo"
+                  /></a>
+                </div>
+                <!-- End Logo -->
+                <!-- Mobile Nav -->
+                <div class="mobile-nav"></div>
+                <!-- End Mobile Nav -->
+              </div>
+              <div class="col-lg-7 col-md-9 col-12">
+                <!-- Main Menu -->
+                <div class="main-menu">
+                  <nav class="navigation">
+                    <ul class="nav menu">
+                      <li class="active"><a href="{% url 'homepage' %}">Home</a></li>
+                      <li><a href="#">Tournament </a></li>
+                      <li><a href="contact.html">Gallery</a></li>
+                      <li><a href="contact.html">News</a></li>
+                      <li><a href="contact.html">Contact Us</a></li>
+                      <li><a href="contact.html">About Us</a></li>
+                    </ul>
+                  </nav>
+                </div>
+                <!--/ End Main Menu -->
+              </div>
+              <div class="col-lg-2 col-12">
+                <div class="get-quote">
+                  <a href="appointment.html" class="btn">Login</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+      <!--/ End Header Inner -->
     </header>
-    <!-- ***** Header Area End ***** -->
-
-    <!-- ***** Modal for Login and Signup ***** -->
-    <div id="modal" class="popupContainer" style="display: none">
-      <div class="popupHeader">
-        <span class="header_title">Login</span>
-        <span class="modal_close"><i class="fa fa-times"></i></span>
-      </div>
-
-      <section class="popupBody">
-        <!-- Social Login -->
-        <div class="social_login">
-          <div>
-            <a href="#" class="social_box fb">
-              <span class="icon"><i class="fab fa-facebook"></i></span>
-              <span class="icon_title">Connect with Facebook</span>
-            </a>
-
-            <a href="#" class="social_box google">
-              <span class="icon"><i class="fab fa-google"></i></span>
-              <span class="icon_title">Connect with Google</span>
-            </a>
-          </div>
-
-          <div class="centeredText">
-            <span>Or use your Email address</span>
-          </div>
-
-          <div class="action_btns">
-            <div class="one_half">
-              <a href="#" id="login_form" class="btn">Login</a>
-            </div>
-            <div class="one_half last">
-              <a href="#" id="register_form" class="btn">Sign up</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Login Form -->
-        <div class="user_login">
-          <form>
-            <label>Email / Username</label>
-            <input type="text" /><br />
-
-            <label>Password</label>
-            <input type="password" /><br />
-
-            <div class="checkbox">
-              <input id="remember" type="checkbox" />
-              <label for="remember">Remember me</label>
-            </div>
-
-            <div class="action_btns">
-              <div class="one_half">
-                <a href="#" class="btn back_btn"
-                  ><i class="fa fa-angle-double-left"></i> Back</a
-                >
-              </div>
-              <div class="one_half last">
-                <a href="#" class="btn btn_red">Login</a>
-              </div>
-            </div>
-          </form>
-
-          <a href="#" class="forgot_password">Forgot password?</a>
-        </div>
-
-        <!-- Register Form -->
-        <div class="user_register">
-          <form>
-            <label>Full Name</label>
-            <input type="text" /><br />
-
-            <label>Email Address</label>
-            <input type="email" /><br />
-
-            <label>Password</label>
-            <input type="password" /><br />
-
-            <div class="checkbox">
-              <input id="send_updates" type="checkbox" />
-              <label for="send_updates">Send me updates</label>
-            </div>
-
-            <div class="action_btns">
-              <div class="one_half">
-                <a href="#" class="btn back_btn"
-                  ><i class="fa fa-angle-double-left"></i> Back</a
-                >
-              </div>
-              <div class="one_half last">
-                <a href="#" class="btn btn_red">Register</a>
-              </div>
-            </div>
-          </form>
-        </div>
-      </section>
-    </div>
-
-   
-
+    <!-- End Header Area -->
     {% block body_block %} {% endblock body_block %}
-
-    <!-- ***** Footer ***** -->
-    <footer id="newsletter">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 offset-lg-2">
-            <div class="section-heading">
-              <h4>
-                Join our mailing list for the latest cricket news &amp;
-                tournament updates
-              </h4>
+    <!-- Footer Area -->
+    <footer id="footer" class="footer">
+      <!-- Footer Top -->
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+            <!-- About Us Section -->
+            <div class="col-lg-3 col-md-6 col-12">
+              <div class="single-footer">
+                <h2>About the Team</h2>
+                <p>
+                  We are passionate about the game of cricket. Our mission is to
+                  provide fans with the latest news, match updates, and insights
+                  from the cricket world.
+                </p>
+                <!-- Social -->
+                <ul class="social">
+                  <li>
+                    <a href="#"><i class="icofont-facebook"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="icofont-twitter"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="icofont-instagram"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="icofont-youtube"></i></a>
+                  </li>
+                </ul>
+                <!-- End Social -->
+              </div>
             </div>
-          </div>
-          <div class="col-lg-6 offset-lg-3">
-            <form id="search" action="#" method="GET">
-              <div class="row">
-                <div class="col-lg-6 col-sm-6">
-                  <fieldset>
-                    <input
-                      type="email"
-                      name="email"
-                      class="email"
-                      placeholder="Enter your email..."
-                      autocomplete="on"
-                      required
-                    />
-                  </fieldset>
-                </div>
-                <div class="col-lg-6 col-sm-6">
-                  <fieldset>
-                    <button type="submit" class="main-button">
-                      Subscribe Now <i class="fa fa-angle-right"></i>
-                    </button>
-                  </fieldset>
+            <!-- Quick Links Section -->
+            <div class="col-lg-3 col-md-6 col-12">
+              <div class="single-footer f-link">
+                <h2>Quick Links</h2>
+                <div class="row">
+                  <div class="col-lg-6 col-md-6 col-12">
+                    <ul>
+                      <li>
+                        <a href="{% url 'homepage' %}"
+                          ><i class="fa fa-caret-right" aria-hidden="true"></i
+                          >Home</a
+                        >
+                      </li>
+                      <li>
+                        <a href="#"
+                          ><i class="fa fa-caret-right" aria-hidden="true"></i
+                          >Teams</a
+                        >
+                      </li>
+                      <li>
+                        <a href="#"
+                          ><i class="fa fa-caret-right" aria-hidden="true"></i
+                          >Matches</a
+                        >
+                      </li>
+                      <li>
+                        <a href="#"
+                          ><i class="fa fa-caret-right" aria-hidden="true"></i
+                          >Rankings</a
+                        >
+                      </li>
+                      <li>
+                        <a href="#"
+                          ><i class="fa fa-caret-right" aria-hidden="true"></i
+                          >Live Scores</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-12">
+                    <ul>
+                      <li>
+                        <a href="#"
+                          ><i class="fa fa-caret-right" aria-hidden="true"></i
+                          >Stats</a
+                        >
+                      </li>
+                      <li>
+                        <a href="#"
+                          ><i class="fa fa-caret-right" aria-hidden="true"></i
+                          >Fixtures</a
+                        >
+                      </li>
+                      <li>
+                        <a href="#"
+                          ><i class="fa fa-caret-right" aria-hidden="true"></i
+                          >News</a
+                        >
+                      </li>
+                      <li>
+                        <a href="#"
+                          ><i class="fa fa-caret-right" aria-hidden="true"></i
+                          >Gallery</a
+                        >
+                      </li>
+                      <li>
+                        <a href="#"
+                          ><i class="fa fa-caret-right" aria-hidden="true"></i
+                          >Contact Us</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </form>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-3">
-            <div class="footer-widget">
-              <h4>Contact Us</h4>
-              <p>123 Cricket Street, Sports City, India</p>
-              <p><a href="#">+91-123-456-7890</a></p>
-              <p>
-                <a href="mailto:info@crickettournaments.co"
-                  >info@crickettournaments.co</a
+            </div>
+            <!-- Open Hours Section -->
+            <div class="col-lg-3 col-md-6 col-12">
+              <div class="single-footer">
+                <h2>Match Schedules</h2>
+                <p>
+                  Check out the latest match schedules and timings to never miss
+                  a game!
+                </p>
+                <ul class="time-sidual">
+                  <li class="day">Test Matches <span>10.00-18.00</span></li>
+                  <li class="day">ODI Matches <span>14.00-22.00</span></li>
+                  <li class="day">T20 Matches <span>19.00-22.30</span></li>
+                </ul>
+              </div>
+            </div>
+            <!-- Newsletter Section -->
+            <div class="col-lg-3 col-md-6 col-12">
+              <div class="single-footer">
+                <h2>Newsletter</h2>
+                <p>
+                  Stay updated with the latest cricket news, scores, and
+                  highlights directly to your inbox!
+                </p>
+                <form
+                  action="mail/mail.php"
+                  method="get"
+                  target="_blank"
+                  class="newsletter-inner"
                 >
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <div class="footer-widget">
-              <h4>Explore</h4>
-              <ul>
-                <li><a href="{% url 'homepage' %}">Home</a></li>
-                <li><a href="#">Tournaments</a></li>
-                <li><a href="#">Teams</a></li>
-                <li><a href="#">Players</a></li>
-                <li><a href="#">Gallery</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <div class="footer-widget">
-              <h4>Useful Links</h4>
-              <ul>
-                <li><a href="#">Match Schedules</a></li>
-                <li><a href="#">Live Scoreboard</a></li>
-                <li><a href="#">Cricket Rules</a></li>
-                <li><a href="#">Team Rankings</a></li>
-                <li><a href="#">Player Stats</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <div class="footer-widget">
-              <h4>About Our Organization</h4>
-              <div class="logo">
-                <img
-                  src="{% static 'home/images/SixersClubWhite.png' %}"
-                  alt="Cricket Organization Logo"
-                />
+                  <input
+                    name="email"
+                    placeholder="Email Address"
+                    class="common-input"
+                    onfocus="this.placeholder = ''"
+                    onblur="this.placeholder = 'Your email address'"
+                    required=""
+                    type="email"
+                  />
+                  <button class="button">
+                    <i class="icofont icofont-paper-plane"></i>
+                  </button>
+                </form>
               </div>
-              <p>
-                We organize cricket tournaments across various formats,
-                promoting the sport and fostering talent from all levels.
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-12">
-            <div class="copyright-text">
-              <p>
-                Copyright © 2024 SixersClub Tournament Organization. All Rights
-                Reserved.
-
-              </p>
             </div>
           </div>
         </div>
       </div>
+      <!--/ End Footer Top -->
+      <!-- Copyright -->
+      <div class="copyright">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-12">
+              <div class="copyright-content">
+                <p>
+                  © Copyright 2024 | All Rights Reserved by
+                  <a href="#" target="_blank">SixersClub.com</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--/ End Copyright -->
     </footer>
 
-    <!-- Bootstrap core JavaScript -->
-    <!-- Scripts -->
-    <script src="{% static 'home/vendor/jquery/jquery.min.js' %}"></script>
-    <script src="{% static 'home/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <!-- jquery Min JS -->
+    <script src="{% static 'home/js/jquery.min.js' %}"></script>
+    <!-- jquery Migrate JS -->
+    <script src="{% static 'home/js/jquery-migrate-3.0.0.js' %}"></script>
+    <!-- jquery Ui JS -->
+    <script src="{% static 'home/js/jquery-ui.min.js' %}"></script>
+    <!-- Easing JS -->
+    <script src="{% static 'home/js/easing.js' %}"></script>
+    <!-- Color JS -->
+    <script src="{% static 'home/js/colors.js' %}"></script>
+    <!-- Popper JS -->
+    <script src="{% static 'home/js/popper.min.js' %}"></script>
+    <!-- Bootstrap Datepicker JS -->
+    <script src="{% static 'home/js/bootstrap-datepicker.js' %}"></script>
+    <!-- Jquery Nav JS -->
+    <script src="{% static 'home/js/jquery.nav.js' %}"></script>
+    <!-- Slicknav JS -->
+    <script src="{% static 'home/js/slicknav.min.js' %}"></script>
+    <!-- ScrollUp JS -->
+    <script src="{% static 'home/js/jquery.scrollUp.min.js' %}"></script>
+    <!-- Niceselect JS -->
+    <script src="{% static 'home/js/niceselect.js' %}"></script>
+    <!-- Tilt Jquery JS -->
+    <script src="{% static 'home/js/tilt.jquery.min.js' %}"></script>
+    <!-- Owl Carousel JS -->
     <script src="{% static 'home/js/owl-carousel.js' %}"></script>
-    <script src="{% static 'home/js/animation.js' %}"></script>
-    <script src="{% static 'home/js/imagesloaded.js' %}"></script>
-    <script src="{% static 'home/js/popup.js' %}"></script>
-    <script src="{% static 'home/js/custom.js' %}"></script>
+    <!-- counterup JS -->
+    <script src="{% static 'home/js/jquery.counterup.min.js' %}"></script>
+    <!-- Steller JS -->
+    <script src="{% static 'home/js/steller.js' %}"></script>
+    <!-- Wow JS -->
+    <script src="{% static 'home/js/wow.min.js' %}"></script>
+    <!-- Magnific Popup JS -->
+    <script src="{% static 'home/js/jquery.magnific-popup.min.js' %}"></script>
+    <!-- Counter Up CDN JS -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="{% static 'home/js/bootstrap.min.js' %}"></script>
+    <!-- Main JS -->
+    <script src="{% static 'home/js/main.js' %}"></script>
   </body>
 </html>
