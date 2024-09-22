@@ -10,6 +10,7 @@ TOURNAMENT_TYPES = (
 
 class Tournament(models.Model):
     name = models.CharField(max_length=200)
+    photo = models.ImageField(upload_to='tournaments_images/', blank=True, null=True)
     tournament_type = models.CharField(max_length=4, choices=TOURNAMENT_TYPES)
     start_date = models.DateField()
     end_date = models.DateField()
