@@ -85,155 +85,33 @@
       </div>
     </div>
     <div class="row">
-      <!-- Tournament 1 -->
+      {% for tournament in tournaments %}
       <div class="col-lg-4 col-md-6">
         <div class="card tournament-card">
           <img
-            src="img/tournament1.jpg"
+            src="../static/{{ tournament.photo }}"
+            alt="{{ tournament.name }}"
             class="card-img-top"
-            alt="SixersClub T20 Blast"
           />
           <div class="card-body">
-            <h5 class="card-title">SixersClub T20 Blast</h5>
+            <h5 class="card-title">{{ tournament.name }}</h5>
             <p class="tournament-info">
-              <i class="fas fa-trophy"></i> T20 Tournament
+              <i class="fas fa-trophy"></i> {{tournament.get_tournament_type_display }} Tournament
             </p>
             <p class="tournament-info">
-              <i class="far fa-calendar-alt"></i> Sept 1, 2024 - Sept 15, 2024
+              <i class="far fa-calendar-alt"></i> {{ tournament.start_date }} -
+              {{ tournament.end_date }}
             </p>
-            <p class="card-text">
-              Experience the thrill of fast-paced T20 cricket in our signature
-              tournament. Compete against top teams for glory and prizes.
-            </p>
-            <a href="#" class="btn btn-view">View Details</a>
+            <a
+              href="{% url 'tournaments:tournament_detail' tournament.pk %}"
+              class="btn btn-view"
+              >View Details</a
+            >
           </div>
         </div>
       </div>
 
-      <!-- Tournament 2 -->
-      <div class="col-lg-4 col-md-6">
-        <div class="card tournament-card">
-          <img
-            src="img/tournament2.jpg"
-            class="card-img-top"
-            alt="Cricket Premier League"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Cricket Premier League</h5>
-            <p class="tournament-info">
-              <i class="fas fa-trophy"></i> One-Day Tournament
-            </p>
-            <p class="tournament-info">
-              <i class="far fa-calendar-alt"></i> Oct 5, 2024 - Nov 10, 2024
-            </p>
-            <p class="card-text">
-              Our flagship one-day tournament featuring intense matches and
-              showcasing cricket talent from across the region.
-            </p>
-            <a href="#" class="btn btn-view">View Details</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tournament 3 -->
-      <div class="col-lg-4 col-md-6">
-        <div class="card tournament-card">
-          <img
-            src="img/tournament3.jpg"
-            class="card-img-top"
-            alt="Youth Cricket Challenge"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Youth Cricket Challenge</h5>
-            <p class="tournament-info">
-              <i class="fas fa-trophy"></i> T20 Tournament
-            </p>
-            <p class="tournament-info">
-              <i class="far fa-calendar-alt"></i> Aug 20, 2024 - Aug 25, 2024
-            </p>
-            <p class="card-text">
-              Nurturing young cricket talent. A platform for under-19 players to
-              showcase their skills and passion for the game.
-            </p>
-            <a href="#" class="btn btn-view">View Details</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tournament 4 -->
-      <div class="col-lg-4 col-md-6">
-        <div class="card tournament-card">
-          <img
-            src="img/tournament4.jpg"
-            class="card-img-top"
-            alt="Corporate Cricket League"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Corporate Cricket League</h5>
-            <p class="tournament-info">
-              <i class="fas fa-trophy"></i> T10 Tournament
-            </p>
-            <p class="tournament-info">
-              <i class="far fa-calendar-alt"></i> Nov 15, 2024 - Nov 20, 2024
-            </p>
-            <p class="card-text">
-              Bringing the corporate world together through cricket. Fast-paced
-              T10 matches for busy professionals.
-            </p>
-            <a href="#" class="btn btn-view">View Details</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tournament 5 -->
-      <div class="col-lg-4 col-md-6">
-        <div class="card tournament-card">
-          <img
-            src="img/tournament5.jpg"
-            class="card-img-top"
-            alt="Women's Cricket Cup"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Women's Cricket Cup</h5>
-            <p class="tournament-info">
-              <i class="fas fa-trophy"></i> One-Day Tournament
-            </p>
-            <p class="tournament-info">
-              <i class="far fa-calendar-alt"></i> Dec 1, 2024 - Dec 15, 2024
-            </p>
-            <p class="card-text">
-              Celebrating women in cricket. A competitive tournament showcasing
-              the best female cricket talent.
-            </p>
-            <a href="#" class="btn btn-view">View Details</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tournament 6 -->
-      <div class="col-lg-4 col-md-6">
-        <div class="card tournament-card">
-          <img
-            src="img/tournament6.jpg"
-            class="card-img-top"
-            alt="Test Cricket Series"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Test Cricket Series</h5>
-            <p class="tournament-info">
-              <i class="fas fa-trophy"></i> Test Match Series
-            </p>
-            <p class="tournament-info">
-              <i class="far fa-calendar-alt"></i> Jan 10, 2025 - Feb 15, 2025
-            </p>
-            <p class="card-text">
-              For the purists of the game. A series of multi-day matches testing
-              skill, strategy, and endurance.
-            </p>
-            <a href="#" class="btn btn-view">View Details</a>
-          </div>
-        </div>
-      </div>
+      {% endfor %}
     </div>
   </div>
 </section>
