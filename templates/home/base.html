@@ -79,7 +79,7 @@
               <div class="col-lg-3 col-md-3 col-12">
                 <!-- Start Logo -->
                 <div class="logo">
-                  <a href="index.html"
+                  <a href="{% url 'homepage' %}"
                     ><img
                       src="{% static 'home/images/SixersClub1.png' %}"
                       alt="SixersClub Logo"
@@ -96,7 +96,7 @@
                   <nav class="navigation">
                     <ul class="nav menu">
                       <li class="active"><a href="{% url 'homepage' %}">Home</a></li>
-                      <li><a href="#">Tournament </a></li>
+                      <li><a href="{% url 'tournaments:tournament_list' %}">Tournament </a></li>
                       <li><a href="{% url 'homepage' %}">Gallery</a></li>
                       <li><a href="{% url 'homepage' %}">News</a></li>
                       <li><a href="{% url 'contact' %}">Contact Us</a></li>
