@@ -7,6 +7,8 @@ from django.conf import settings
 def get_home_page(request):
     return render(request, 'home/homepage.html',context={})
 
+def about(request):
+    return render(request, 'home/about.html')
 
 def contact(request):
     if request.method == 'POST':
