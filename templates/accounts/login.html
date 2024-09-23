@@ -35,32 +35,46 @@
           <div class="login-form">
             <h2>Login to Your Account</h2>
             <p>Enter your credentials to access your SixersClub account</p>
-            <!-- Login Form -->
 
+            <!-- Displaying error messages if any -->
             {% if messages %}
             <div class="alert alert-danger">
               {% for message in messages %}
               <strong>Error!</strong> {{ message }}
+              {% endfor %}
             </div>
-            {% endfor %} {% endif %}
+            {% endif %}
+
+            <!-- Login Form -->
             <form class="form" method="post" action="{% url 'login' %}">
               {% csrf_token %}
+              
+              <!-- Username Field -->
               <div class="row">
                 <div class="col-lg-12">
                   <div class="form-group">
-                    <input placeholder="Username" required />
+                    {{ form.username.label_tag }}
+                    {{ form.username }}
+                    <!-- Display errors for username if any -->
+                    {% if form.username.errors %}
+                    <div class="text-danger">{{ form.username.errors }}</div>
+                    {% endif %}
                   </div>
                 </div>
+
+                <!-- Password Field -->
                 <div class="col-lg-12">
                   <div class="form-group">
-                    <input
-                      type="password"
-                      name="password"
-                      placeholder="Password"
-                      required
-                    />
+                    {{ form.password.label_tag }}
+                    {{ form.password }}
+                    <!-- Display errors for password if any -->
+                    {% if form.password.errors %}
+                    <div class="text-danger">{{ form.password.errors }}</div>
+                    {% endif %}
                   </div>
                 </div>
+
+                <!-- Remember Me Checkbox -->
                 <div class="col-lg-6">
                   <div class="form-group">
                     <div class="checkbox">
@@ -69,18 +83,22 @@
                           name="remember_me"
                           id="remember_me"
                           type="checkbox"
-                        />Remember me
+                        />
+                        Remember me
                       </label>
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-6"></div>
               </div>
+
+              <!-- Submit Button -->
               <div class="row">
                 <div class="col-lg-12">
                   <button type="submit" class="btn">Login Now</button>
                 </div>
               </div>
+
+              <!-- Link to Signup -->
               <div class="text-center">
                 <br><p>Don't Have an Account? <a href="{% url 'register_type' %}">Signup</a></p>
               </div>
@@ -91,6 +109,7 @@
     </div>
   </div>
 </section>
+
 <!-- End Login & Register -->
 
 <!-- Start Call to Action -->
