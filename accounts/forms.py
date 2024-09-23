@@ -36,6 +36,17 @@ class CustomUserCreationForm(UserCreationForm):
             cleaned_data['role'] = None
 
         return cleaned_data
+    
+
+    def __init__(self, *args, **kwargs):
+        super(CustomUserCreationForm, self).__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs.update({'class': 'form-control'})
+        self.fields['email'].widget.attrs.update({'class': 'form-control'})
+        self.fields['user_type'].widget.attrs.update({'class': 'form-control'})
+        self.fields['experience_level'].widget.attrs.update({'class': 'form-control'})
+        self.fields['role'].widget.attrs.update({'class': 'form-control'})
+        self.fields['password1'].widget.attrs.update({'class': 'form-control'})
+        self.fields['password2'].widget.attrs.update({'class': 'form-control'})
 
 class LoginForm(forms.Form):
     username = forms.CharField()

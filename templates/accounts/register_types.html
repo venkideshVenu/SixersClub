@@ -1,0 +1,119 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block body_block %}
+
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs overlay">
+        <div class="container">
+            <div class="bread-inner">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>Select User Type</h2>
+                        <ul class="bread-list">
+                            <li><a href="index.html">Home</a></li>
+                            <li><i class="icofont-simple-right"></i></li>
+                            <li class="active">Register</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Type Selection Section -->
+    <section class="appointment single-page">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-12 col-12">
+                    <div class="appointment-inner text-center">
+                        <div class="title">
+                            <h3>Choose Your User Type</h3>
+                            <p>Select the option that best describes your role</p>
+                        </div>
+                        <div class="row justify-content-center mt-5">
+                            <div class="col-lg-4 col-md-4 col-12 mb-4">
+                                <div class="user-type-card">
+                                    <div class="icon-circle">
+                                        <img src="{% static 'accounts/images/captain.png' %}" alt="Captain"/>
+                                    </div>
+                                    <h4>Team Manager</h4>
+                                    <p>Lead your team to victory</p>
+                                    <a href="" class="btn">Register</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-12 mb-4">
+                                <div class="user-type-card">
+                                    <div class="icon-circle">
+                                        <img src="{% static 'accounts/images/player.png' %}" alt="Captain"/>
+                                    </div>
+                                    <h4>Player<br>...</h4>
+                                    <p>Join a team and compete</p>
+                                    <a href="" class="btn">Register</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-12 mb-4">
+                                <div class="user-type-card">
+                                    <div class="icon-circle">
+                                        <img src="{% static 'accounts/images/fan.png' %}" alt="Captain"/>
+                                    </div>
+                                    <h4>Fan<br>...</h4>
+                                    <p>Support your favorite teams</p>
+                                    <a href="" class="btn">Register</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .user-type-card {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 30px 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .user-type-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            background-color: #1A76D1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        .icon-circle i {
+            font-size: 40px;
+            color: #fff;
+        }
+        .user-type-card h4 {
+            color: #1A76D1;
+            margin-bottom: 15px;
+        }
+        .user-type-card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .user-type-card .btn {
+            background-color: #1A76D1;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .user-type-card .btn:hover {
+            background-color: #145CA4;
+        }
+    </style>
+
+{% endblock %}

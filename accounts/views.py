@@ -7,24 +7,11 @@ from .models import CustomUser
 from django.contrib import messages
 
 
+def register_type(request):
+    return render(request, 'accounts/register_types.html', context={})
+
 
 def register_view(request):
-    if request.method == 'POST':
-        form = CustomUserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)
-            messages.success(request, "Registration successful.")
-            return redirect('login')  # Redirect to login after registration
-        else:
-            messages.error(request, "Registration failed. Please correct the errors below.")
-    else:
-        form = CustomUserCreationForm()
-    
-    return render(request, 'accounts/register.html', {'form': form})
-
-
-def register(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
