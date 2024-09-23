@@ -64,23 +64,6 @@ def fan_register_view(request):
 
 
 
-def register_view(request):
-    if request.method == 'POST':
-        form = CustomUserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)
-            if user.is_team_manager:
-                return redirect('team_manager_dashboard')
-            elif user.is_player:
-                return redirect('player_dashboard')
-            else:
-                return redirect('fan_dashboard')
-    else:
-        form = CustomUserCreationForm()
-    return render(request, 'accounts/register.html', {'form': form})
-
-
 def login_view(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
