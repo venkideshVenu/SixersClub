@@ -10,6 +10,10 @@ def get_home_page(request):
 def about(request):
     return render(request, 'home/about.html')
 
+def errorpage(request):
+    return render(request, 'home/404.html')
+
+
 def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
