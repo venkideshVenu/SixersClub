@@ -20,7 +20,7 @@ def individual_registration_view(request):
                 tournament_registration = TournamentRegistration.objects.get(tournament=tournament, captain=request.user)
                 tournament_registration.players.add(player)  # Add player to the team
                 messages.success(request, "You have registered your interest to participate!")
-                return redirect('home')
+                return redirect('homepage')
             except User.DoesNotExist:
                 messages.error(request, "Player ID does not exist.")
             except TournamentRegistration.DoesNotExist:
@@ -46,7 +46,7 @@ def team_registration_view(request):
                 user = User.objects.get(player_id=player)
                 registration.players.add(user)  # Add the user to the registration
             messages.success(request, "Team registered successfully!")
-            return redirect('home')
+            return redirect('homepage')
         else:
             messages.error(request, "Please correct the errors below.")
     else:

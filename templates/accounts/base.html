@@ -108,7 +108,11 @@
               </div>
               <div class="col-lg-2 col-12">
                 <div class="get-quote">
-                  <a href="{% url 'login' %}" class="btn">Login</a>
+                  <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                
+                    <button type="submit" class="btn btn-primary">log Out</button>
+                </form>
                 </div>
               </div>
             </div>

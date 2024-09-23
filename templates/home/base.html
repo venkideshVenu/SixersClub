@@ -97,18 +97,35 @@
                     <ul class="nav menu">
                       <li class="active"><a href="{% url 'homepage' %}">Home</a></li>
                       <li><a href="{% url 'tournaments:tournament_list' %}">Tournament </a></li>
-                      <li><a href="{% url 'homepage' %}">Gallery</a></li>
-                      <li><a href="{% url 'homepage' %}">News</a></li>
                       <li><a href="{% url 'contact' %}">Contact Us</a></li>
                       <li><a href="{% url 'about' %}">About Us</a></li>
+                      <li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                      <li>{% if user.id is not none %}
+                            {% if user.user_type == 'team_manager' %}
+                            <a href="{% url 'team_manager_dashboard' %}">{{ user.username }}</a>
+                            {% elif user.user_type == 'player' %}
+                            <a href="{% url 'player_dashboard' %}">{{ user.username }}</a>
+                            {% elif user.user_type == 'fan' %}
+                            <a href="{% url 'fan_dashboard' %}">{{ user.username }}</a>
+                            {% endif %}
+                        {% else %}
+                        <a>Guest</a>
+                        {% endif %}</li>
                     </ul>
                   </nav>
                 </div>
                 <!--/ End Main Menu -->
               </div>
+
+              
               <div class="col-lg-2 col-12">
+                
                 <div class="get-quote">
-                  <a href="{% url 'login' %}" class="btn">Login</a>
+                  {% if user.id is none %}
+                  <a href="{% url 'login' %}" class="btn" >Login</a>
+                  {% else %}
+                  <a href="{% url 'logout' %}" class="btn" >Logout</a>
+                  {% endif %}
                 </div>
               </div>
             </div>

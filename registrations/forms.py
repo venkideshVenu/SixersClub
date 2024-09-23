@@ -15,15 +15,23 @@ class IndividualRegistrationForm(forms.Form):
         return player_id
 
 
+from django import forms
+from .models import TournamentRegistration
+
 class TournamentRegistrationForm(forms.ModelForm):
     player_ids = forms.CharField(
         label='Player IDs (comma-separated)',
-        help_text="Enter Player IDs to add, separated by commas."
+        help_text="Enter Player IDs to add, separated by commas.",
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Player IDs (comma-separated)'})
     )
 
     class Meta:
         model = TournamentRegistration
-        fields = ['tournament', 'team_name', 'player_ids']  # Removed players from here
+        fields = ['tournament', 'team_name', 'player_ids']
+        widgets = {
+            'tournament': forms.Select(attrs={'class': 'form-control'}),
+            'team_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter your team name'}),
+        }
 
     def clean_player_ids(self):
         player_ids = self.cleaned_data.get('player_ids')

@@ -1,34 +1,80 @@
 {% extends 'tournaments/base.html' %}
 
-{% block content %}
-<div class="registration-form">
-    <h2>Team Registration</h2>
-    {% if messages %}
-    {% for message in messages %}
-        <div class="alert alert-{{ message.tags }}">
-            {{ message }}
-        </div>
-    {% endfor %}
-    {% endif %}
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
+{% block body_block %}
+<section class="register section">
+  <div class="container">
+    <div class="inner">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+          <div class="registration-form card shadow p-4">
+            <h2 class="text-center mb-4">Team Registration</h2>
 
-        {% if form.cleaned_data.player_ids %}
-            <h3>Players:</h3>
-            <ul>
-                {% for player_id in form.cleaned_data.player_ids %}
+            <!-- Display messages (success, error, etc.) -->
+            {% if messages %}
+            <div class="alert-container">
+              {% for message in messages %}
+              <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+              {% endfor %}
+            </div>
+            {% endif %}
+
+            <!-- Registration Form -->
+            <form method="post" class="row g-3">
+              {% csrf_token %}
+              
+              <!-- Tournament Field -->
+              <div class="col-12">
+                <label for="id_tournament" class="form-label">Tournament</label>
+                {{ form.tournament }}
+              </div>
+
+              <!-- Team Name Field -->
+              <div class="col-12">
+                <label for="id_team_name" class="form-label">Team Name</label>
+                {{ form.team_name }}
+              </div>
+
+              <!-- Player IDs Field -->
+              <div class="col-12">
+                <label for="id_player_ids" class="form-label">Player IDs (comma-separated)</label>
+                {{ form.player_ids }}
+                <small class="form-text text-muted">{{ form.player_ids.help_text }}</small>
+              </div>
+
+              <!-- Players List (if available) -->
+              {% if form.cleaned_data.player_ids %}
+              <div class="col-12">
+                <h3 class="mt-4">Players:</h3>
+                <ul class="list-group">
+                  {% for player_id in form.cleaned_data.player_ids %}
                     {% with player=player_id|add:"" %}
-                        {% if player %}
-                            <li>
-                                {{ player.username }} (Role: {{ player.role }}, Experience Level: {{ player.experience_level }})
-                            </li>
-                        {% endif %}
+                      {% if player %}
+                      <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span>{{ player.username }}</span>
+                        <span class="badge bg-primary rounded-pill">
+                          Role: {{ player.role }}, Experience: {{ player.experience_level }}
+                        </span>
+                      </li>
+                      {% endif %}
                     {% endwith %}
-                {% endfor %}
-            </ul>
-        {% endif %}
-        <button type="submit" class="btn btn-primary">Register Team</button>
-    </form>
-</div>
+                  {% endfor %}
+                </ul>
+              </div>
+              {% endif %}
+
+              <!-- Submit Button -->
+              <div class="col-12 text-center mt-4">
+                <button type="submit" class="btn btn-primary w-100">Register Team</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock %}
+

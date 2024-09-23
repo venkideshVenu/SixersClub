@@ -1,3 +1,7 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block body_block %}
+
 <h2>Welcome, {{ request.user.username }} (Team Manager)</h2>
 <p>Here you can manage your team and view upcoming tournaments.</p>
 <form method="post" action="{% url 'logout' %}">
@@ -5,3 +9,5 @@
 
     <button type="submit" class="btn btn-primary">log Out</button>
 </form>
+
+{% endblock %}
