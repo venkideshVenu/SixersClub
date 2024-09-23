@@ -1,0 +1,7 @@
+<h2>Welcome, {{ request.user.username }} (Team Manager)</h2>
+<p>Here you can manage your team and view upcoming tournaments.</p>
+<form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+
+    <button type="submit" class="btn btn-primary">log Out</button>
+</form>

@@ -1,0 +1,7 @@
+<h2>Welcome, {{ request.user.username }} (Fan)</h2>
+<p>Here you can view the latest tournaments and scores.</p>
+<form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+
+    <button type="submit" class="btn btn-primary">log Out</button>
+</form>
