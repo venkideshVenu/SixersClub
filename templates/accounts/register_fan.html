@@ -1,0 +1,37 @@
+{% extends 'accounts/base.html' %}{% load static %} {% block body_block %}
+
+<section class="register section">
+    <div class="container">
+      <div class="inner">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="register-left">
+              <img src="{% static 'accounts/images/register-fan.jpg' %}" alt="Register as Fan" />
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="register-form">
+              <h2>Register as Fan</h2>
+              <p>Support your favorite teams and players</p>
+              {% if messages %}
+              <div class="alert alert-danger">
+                {% for message in messages %}
+                <strong>Error!</strong> {{ message }}
+                {% endfor %}
+              </div>
+              {% endif %}
+              <form class="form" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn">Register Now</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+
+{% endblock %}

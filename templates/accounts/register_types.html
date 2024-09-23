@@ -39,7 +39,7 @@
                                     </div>
                                     <h4>Team Manager</h4>
                                     <p>Lead your team to victory</p>
-                                    <a href="" class="btn">Register</a>
+                                    <a href="{% url 'register_team_manager' %}?user_type=team_manager" class="btn">Register</a>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-12 mb-4">
@@ -49,7 +49,7 @@
                                     </div>
                                     <h4>Player<br>...</h4>
                                     <p>Join a team and compete</p>
-                                    <a href="" class="btn">Register</a>
+                                    <a href="{% url 'register_player' %}?user_type=player" class="btn">Register</a>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-12 mb-4">
@@ -59,7 +59,7 @@
                                     </div>
                                     <h4>Fan<br>...</h4>
                                     <p>Support your favorite teams</p>
-                                    <a href="" class="btn">Register</a>
+                                    <a href="{% url 'register_fan' %}?user_type=fan" class="btn">Register</a>
                                 </div>
                             </div>
                         </div>

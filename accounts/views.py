@@ -10,6 +10,59 @@ from django.contrib import messages
 def register_type(request):
     return render(request, 'accounts/register_types.html', context={})
 
+from django.shortcuts import render, redirect
+from .forms import CustomUserCreationForm
+from django import forms
+
+# For Team Manager Registration
+def team_manager_register_view(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.user_type = 'team_manager'
+            user.save()
+            return redirect('team_manager_dashboard')
+    else:
+        # Exclude 'role' field for Team Manager
+        form = CustomUserCreationForm()
+        form.fields['role'].widget = forms.HiddenInput()
+    
+    return render(request, 'accounts/register_team_manager.html', {'form': form})
+
+# For Player Registration
+def player_register_view(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.user_type = 'player'
+            user.save()
+            return redirect('player_dashboard')
+    else:
+        form = CustomUserCreationForm()
+        # Player needs all fields, so no fields will be hidden
+    
+    return render(request, 'accounts/register_player.html', {'form': form})
+
+# For Fan Registration
+def fan_register_view(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.user_type = 'fan'
+            user.save()
+            return redirect('fan_dashboard')
+    else:
+        # Exclude 'role' and 'experience_level' fields for Fan
+        form = CustomUserCreationForm()
+        form.fields['role'].widget = forms.HiddenInput()
+        form.fields['experience_level'].widget = forms.HiddenInput()
+    
+    return render(request, 'accounts/register_fan.html', {'form': form})
+
+
 
 def register_view(request):
     if request.method == 'POST':

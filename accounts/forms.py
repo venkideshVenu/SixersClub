@@ -3,6 +3,10 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import CustomUser
 
 
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from .models import CustomUser
+
 class CustomUserCreationForm(UserCreationForm):
     ROLE_CHOICES = [
         ('batsman', 'Batsman'),
@@ -15,7 +19,7 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta:
         model = CustomUser
-        fields = ('username', 'email', 'user_type', 'experience_level', 'role', 'password1', 'password2')
+        fields = ('username', 'email', 'experience_level', 'role', 'password1', 'password2')  # Exclude 'user_type'
 
     def clean(self):
         cleaned_data = super().clean()
@@ -36,17 +40,7 @@ class CustomUserCreationForm(UserCreationForm):
             cleaned_data['role'] = None
 
         return cleaned_data
-    
 
-    def __init__(self, *args, **kwargs):
-        super(CustomUserCreationForm, self).__init__(*args, **kwargs)
-        self.fields['username'].widget.attrs.update({'class': 'form-control'})
-        self.fields['email'].widget.attrs.update({'class': 'form-control'})
-        self.fields['user_type'].widget.attrs.update({'class': 'form-control'})
-        self.fields['experience_level'].widget.attrs.update({'class': 'form-control'})
-        self.fields['role'].widget.attrs.update({'class': 'form-control'})
-        self.fields['password1'].widget.attrs.update({'class': 'form-control'})
-        self.fields['password2'].widget.attrs.update({'class': 'form-control'})
 
 class LoginForm(forms.Form):
     username = forms.CharField()
