@@ -1,21 +1,105 @@
 {% extends 'tournaments/base.html' %}
-
+{% load static %}
 {% block body_block %}
 
-<h2>Register Your Team</h2>
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Register Team</button>
-</form>
-
-{% if messages %}
-    {% for message in messages %}
-        <div class="alert alert-{{ message.tags }}">
-            {{ message }}
+<div class="breadcrumbs overlay">
+    <div class="container">
+      <div class="bread-inner">
+        <div class="row">
+          <div class="col-12">
+            <h2> Register Team</h2>
+            <ul class="bread-list">
+              <li><a>Accounts</a></li>
+              <li><i class="icofont-simple-right"></i></li>
+              <li class="active">Register Team</li>
+            </ul>
+          </div>
         </div>
-    {% endfor %}
-{% endif %}
-{% endblock %}
+      </div>
+    </div>
+  </div>
+  <!-- Start Login & Register -->
+  <!-- Start Login -->
+  <section class="login section">
+    <div class="container">
+      <div class="inner">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="login-left">
+              <img
+                src="{% static 'registrations/images/register.jpg' %}"
+                alt="SixersClub Login"
+              />
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="login-form">
+              <h2>Register Your Team</h2>
+              <p>Enter the Details</p>
+  
+              <!-- Displaying error messages if any -->
+              {% if messages %}
+              <div class="alert alert-danger">
+                {% for message in messages %}
+                <strong>Error!</strong> {{ message }}
+                {% endfor %}
+              </div>
+              {% endif %}
+  
+              <!-- Login Form -->
+              <form class="form" method="post">
+                {% csrf_token %}
+                
+                <!-- Username Field -->
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                      {{ form.team_name.label_tag }}
+                      {{ form.team_name }}
+                      <!-- Display errors for team_name if any -->
+                      {% if form.team_name.errors %}
+                      <div class="text-danger">{{ form.team_name.errors }}</div>
+                      {% endif %}
+                    </div>
+                  </div>
+  
+                  <!-- Password Field -->
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                      {{ form.team_motto.label_tag }}
+                      {{ form.team_motto }}
+                      <!-- Display errors for team_motto if any -->
+                      {% if form.team_motto.errors %}
+                      <div class="text-danger">{{ form.team_motto.errors }}</div>
+                      {% endif %}
+                    </div>
+                  </div>
+                  {{ form.field.value|default_if_none:"" }}
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                      {{ form.player_ids.label_tag }}
+                      {{ form.player_ids }}
+                      <!-- Display errors for player_ids if any -->
+                      {% if form.player_ids.errors %}
+                      <div class="text-danger">{{ form.player_ids.errors }}</div>
+                      {% endif %}
+                    </div>
+                  </div>
+  
+                <!-- Submit Button -->
+                <div class="row">
+                  <div class="col-lg-12">
+                    <button type="submit" class="btn">Register</button>
+                  </div>
+                </div>
+  
 
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
