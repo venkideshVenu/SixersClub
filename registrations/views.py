@@ -7,7 +7,7 @@ from .models import TeamRegistration, PlayerRegistration
 @login_required
 def team_registration_view(request, tournament_id):
     if not request.user.is_team_manager:
-        return redirect('home')  # Redirect if the user is not a team manager
+        return redirect('homepage')  # Redirect if the user is not a team manager
     
     if request.method == 'POST':
         form = TeamRegistrationForm(request.POST)
@@ -18,7 +18,7 @@ def team_registration_view(request, tournament_id):
             team_registration.save()
             form.save_m2m()  # Save the players for the ManyToMany field
             messages.success(request, 'Team registered successfully.')
-            return redirect('dashboard')
+            return redirect('team_manager_dashboard')
         else:
             messages.error(request, 'Failed to register the team. Please fix the errors below.')
     else:
@@ -36,7 +36,7 @@ from tournaments.models import Tournament
 @login_required
 def player_registration_view(request, tournament_id):
     if not request.user.is_player:
-        return redirect('home')  # Only players can access this form
+        return redirect('homepage')  # Only players can access this form
 
     tournament = Tournament.objects.get(id=tournament_id)  # Get the tournament from the ID
 
@@ -48,7 +48,7 @@ def player_registration_view(request, tournament_id):
             player_registration.tournament = tournament  # Assign the tournament passed via URL
             player_registration.save()
             messages.success(request, 'You have registered successfully.')
-            return redirect('dashboard')
+            return redirect('player_dashboard')
         else:
             messages.error(request, 'Failed to register. Please fix the errors below.')
     else:

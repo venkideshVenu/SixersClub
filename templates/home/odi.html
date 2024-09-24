@@ -91,9 +91,9 @@
             <div class="col-12 text-center">
                 {% if user.id is not none %}
                     {% if user.user_type == 'team_manager' %}
-                    <a href="{% url 'team_registration' %}  "class="btn btn-primary mt-4">Register Now<i class="fa fa-cricket-bat"></i></a>
+                    <a href="{% url 'tournaments:tournament_list' %}" class="btn btn-primary mt-4">Register Now<i class="fa fa-cricket-bat"></i></a>
                     {% elif user.user_type == 'player' %}
-                    <a href="{% url 'individual_registration' %}" class="btn btn-primary mt-4" >Register Now<i class="fa fa-cricket-bat"></i></a>
+                    <a href="{% url 'tournaments:tournament_list' %}" class="btn btn-primary mt-4" >Register Now<i class="fa fa-cricket-bat"></i></a>
                     {% elif user.user_type == 'fan' %}
                     <a href="{% url 'login' %}" class="btn btn-primary mt-4"> Login as Player to Register <i class="fa fa-cricket-bat"></i></a>
                     {% endif %}
