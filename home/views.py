@@ -13,6 +13,18 @@ def about(request):
 def errorpage(request):
     return render(request, 'home/404.html')
 
+def twenty20(request):
+    return render(request, 'home/twenty20.html')
+
+
+def errorpage(request):
+    return render(request, 'home/404.html')
+
+
+def errorpage(request):
+    return render(request, 'home/404.html')
+
+
 
 def contact(request):
     if request.method == 'POST':
