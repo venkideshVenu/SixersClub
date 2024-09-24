@@ -1,25 +1,117 @@
-{% extends 'news/base.html' %}
+{% extends 'home/base.html' %}
+{% load static %}
+{% block body_block %}
 
-{% block content %}
-<h2>Create a New Article</h2>
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <div class="form-group">
-        <label for="title">Title</label>
-        {{ form.title }}
+
+
+
+<div class="breadcrumbs overlay">
+    <div class="container">
+      <div class="bread-inner">
+        <div class="row">
+          <div class="col-12">
+            <h2> Register Team</h2>
+            <ul class="bread-list">
+              <li><a>Accounts</a></li>
+              <li><i class="icofont-simple-right"></i></li>
+              <li class="active">Register Team</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="form-group">
-        <label for="subject">Subject</label>
-        {{ form.subject }}
+  </div>
+  <!-- Start Login & Register -->
+  <!-- Start Login -->
+  <section class="login section">
+    <div class="container">
+      <div class="inner">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="login-left">
+              <img
+                src="{% static 'news/images/createnews.jpg' %}"
+                alt="SixersClub Login"
+              />
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="login-form">
+              <h2>Register Your Team</h2>
+              <p>Enter the Details</p>
+  
+              <!-- Displaying error messages if any -->
+              {% if messages %}
+              <div class="alert alert-danger">
+                {% for message in messages %}
+                <strong>Error!</strong> {{ message }}
+                {% endfor %}
+              </div>
+              {% endif %}
+  
+              <!-- Login Form -->
+              <form class="form" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <!-- Username Field -->
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                      {{ form.title.label_tag }}
+                      {{ form.title }}
+                      <!-- Display errors for title if any -->
+                      {% if form.title.errors %}
+                      <div class="text-danger">{{ form.title.errors }}</div>
+                      {% endif %}
+                    </div>
+                  </div>
+  
+                  <!-- Password Field -->
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                      {{ form.subject.label_tag }}
+                      {{ form.subject }}
+                      <!-- Display errors for subject if any -->
+                      {% if form.subject.errors %}
+                      <div class="text-danger">{{ form.subject.errors }}</div>
+                      {% endif %}
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                      {{ form.content.label_tag }}
+                      {{ form.content }}
+                      <!-- Display errors for content if any -->
+                      {% if form.content.errors %}
+                      <div class="text-danger">{{ form.content.errors }}</div>
+                      {% endif %}
+                    </div>
+                  </div>
+
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                      {{ form.photo.label_tag }}
+                      {{ form.photo }}
+                      <!-- Display errors for photo if any -->
+                      {% if form.photo.errors %}
+                      <div class="text-danger">{{ form.photo.errors }}</div>
+                      {% endif %}
+                    </div>
+                  </div>
+  
+                <!-- Submit Button -->
+                <div class="row">
+                  <div class="col-lg-12">
+                    <button type="submit" class="btn">Register</button>
+                  </div>
+                </div>
+  
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="form-group">
-        <label for="content">Content</label>
-        {{ form.content }}
-    </div>
-    <div class="form-group">
-        <label for="photo">Photo</label>
-        {{ form.photo }}
-    </div>
-    <button type="submit" class="btn btn-success">Submit</button>
-</form>
+  </section>
 {% endblock %}
