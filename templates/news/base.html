@@ -1,30 +1,292 @@
+{% load static %}
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SixersClub - News & Updates</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">SixersClub</a>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'article_list' %}">News & Updates</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'create_article' %}">Post Article</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div class="container mt-4">
-        {% block content %}
-        {% endblock %}
+<html class="no-js" lang="zxx">
+  <head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="Site keywords here" />
+    <meta
+      name="description"
+      content="SixersClub - Cricket Tournament Hosting"
+    />
+    <meta name="copyright" content="" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Title -->
+    <title>SixersClub - Cricket Tournaments</title>
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{% static 'home/images/favicon.ico' %}"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'home/css/bootstrap.min.css' %}" />
+    <!-- Nice Select CSS -->
+    <link rel="stylesheet" href="{% static 'home/css/nice-select.css' %}" />
+    <!-- Font Awesome CSS -->
+    <link
+      rel="stylesheet"
+      href="{% static 'home/css/font-awesome.min.css' %}"
+    />
+    <!-- icofont CSS -->
+    <link rel="stylesheet" href="{% static 'home/css/icofont.css' %}" />
+    <!-- Slicknav -->
+    <link rel="stylesheet" href="{% static 'home/css/slicknav.min.css' %}" />
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="{% static 'home/css/owl-carousel.css' %}" />
+    <!-- Datepicker CSS -->
+    <link rel="stylesheet" href="{% static 'home/css/datepicker.css' %}" />
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="{% static 'home/css/animate.min.css' %}" />
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet" href="{% static 'home/css/magnific-popup.css' %}" />
+
+    <!-- Medipro CSS -->
+    <link rel="stylesheet" href="{% static 'home/css/normalize.css' %}" />
+    <link rel="stylesheet" href="{% static 'home/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'home/css/responsive.css' %}" />
+  </head>
+  <body>
+    <!-- Preloader -->
+    <div class="preloader">
+      <div class="loader">
+        <div class="loader-outter"></div>
+        <div class="loader-inner"></div>
+      </div>
     </div>
-</body>
+    <!-- End Preloader -->
+    <!-- Header Area -->
+    <header class="header">
+      <!-- Header Inner -->
+      <div class="header-inner">
+        <div class="container">
+          <div class="inner">
+            <div class="row">
+              <div class="col-lg-3 col-md-3 col-12">
+                <!-- Start Logo -->
+                <div class="logo">
+                  <a href="{% url 'homepage' %}"
+                    ><img
+                      src="{% static 'home/images/SixersClub1.png' %}"
+                      alt="SixersClub Logo"
+                  /></a>
+                </div>
+                <!-- End Logo -->
+                <!-- Mobile Nav -->
+                <div class="mobile-nav"></div>
+                <!-- End Mobile Nav -->
+              </div>
+              <div class="col-lg-7 col-md-9 col-12">
+                <!-- Main Menu -->
+                <div class="main-menu">
+                  <nav class="navigation">
+                    <ul class="nav menu">
+                      <li ><a href="{% url 'homepage' %}">Home</a></li>
+                      <li><a href="{% url 'tournaments:tournament_list' %}">Tournament </a></li>
+                      <li class="active" ><a href="{% url 'article_list' %}">News</a></li>
+                      <li><a href="{% url 'create_article' %}">Create Article</a></li>
+
+                      <li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                      <li>{% if user.id is not none %}
+                            {% if user.user_type == 'team_manager' %}
+                            <a href="{% url 'team_manager_dashboard' %}">{{ user.username }}</a>
+                            {% elif user.user_type == 'player' %}
+                            <a href="{% url 'player_dashboard' %}">{{ user.username }}</a>
+                            {% elif user.user_type == 'fan' %}
+                            <a href="{% url 'fan_dashboard' %}">{{ user.username }}</a>
+                            {% endif %}
+                        {% else %}
+                        <a>Guest User</a>
+                        {% endif %}</li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>              
+              <div class="col-lg-2 col-12">
+                
+                <div class="get-quote">
+                  {% if user.id is none %}
+                  <a href="{% url 'login' %}" class="btn" >Login</a>
+                  {% else %}
+                  <a href="{% url 'logout' %}" class="btn" >Logout</a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--/ End Header Inner -->
+    </header>
+    <!-- End Header Area -->
+    {% block body_block %} {% endblock body_block %}
+    <!-- Footer Area -->
+    <footer id="footer" class="footer">
+      <!-- Footer Top -->
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+            <!-- About Us Section -->
+            <div class="col-lg-3 col-md-6 col-12">
+              <div class="single-footer">
+                <h2>About SixersClub</h2>
+                <p>SixersClub is the ultimate platform for cricket enthusiasts. From organizing cricket tournaments to tracking your favorite players, we bring the cricketing community together.</p>
+                <p>Stay tuned for updates on upcoming matches, tournaments, and cricket news!</p>
+                <!-- Social -->
+                <ul class="social">
+                  <li>
+                    <a href="notfound"><i class="icofont-facebook"></i></a>
+                  </li>
+                  <li>
+                    <a href="notfound"><i class="icofont-twitter"></i></a>
+                  </li>
+                  <li>
+                    <a href="notfound"><i class="icofont-instagram"></i></a>
+                  </li>
+                  <li>
+                    <a href="notfound"><i class="icofont-youtube"></i></a>
+                  </li>
+                </ul>
+                <!-- End Social -->
+              </div>
+            </div>
+            <!-- Quick Links Section -->
+            <div class="col-lg-3 col-md-6 col-12">
+              <div class="single-footer f-link">
+                <h2>Quick Links</h2>
+                <div class="row">
+                  <div class="col-lg-6 col-md-6 col-12">
+                    <ul>
+                      <li><a href="{% url 'homepage' %}"><i class="fa fa-caret-right" aria-hidden="true"></i>Home</a></li>
+                      <li><a href="{% url 'about' %}"><i class="fa fa-caret-right" aria-hidden="true"></i>About Us</a></li>
+                      <li><a href="{% url 'contact' %}"><i class="fa fa-caret-right" aria-hidden="true"></i>Contact Us</a></li>
+                      <li><a href="{% url 'tournaments:tournament_list' %}"><i class="fa fa-caret-right" aria-hidden="true"></i>Tournaments</a></li>
+                      <li><a href="{% url 'notfound' %}"><i class="fa fa-caret-right" aria-hidden="true"></i>Leaderboards</a></li>
+    
+                    </ul>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <!-- Open Hours Section -->
+            <div class="col-lg-3 col-md-6 col-12">
+              <div class="single-footer">
+                <h2>Match Schedules</h2>
+                <p>
+                  Check out the latest match schedules and timings to never miss
+                  a game!
+                </p>
+                <ul class="time-sidual">
+                  <li class="day">Test Matches <span>10.00-18.00</span></li>
+                  <li class="day">ODI Matches <span>14.00-22.00</span></li>
+                  <li class="day">T20 Matches <span>19.00-22.30</span></li>
+                </ul>
+              </div>
+            </div>
+            <!-- Newsletter Section -->
+            <div class="col-lg-3 col-md-6 col-12">
+              <div class="single-footer">
+                <h2>Newsletter</h2>
+                <p>
+                  Stay updated with the latest cricket news, scores, and
+                  highlights directly to your inbox!
+                </p>
+                <form
+                  action="mail/mail.php"
+                  method="get"
+                  target="_blank"
+                  class="newsletter-inner"
+                >
+                  <input
+                    name="email"
+                    placeholder="Email Address"
+                    class="common-input"
+                    onfocus="this.placeholder = ''"
+                    onblur="this.placeholder = 'Your email address'"
+                    required=""
+                    type="email"
+                  />
+                  <button class="button">
+                    <i class="icofont icofont-paper-plane"></i>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--/ End Footer Top -->
+      <!-- Copyright -->
+      <div class="copyright">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-12">
+              <div class="copyright-content">
+                <p>
+                  © Copyright 2024 | All Rights Reserved by
+                  <a href="{% url 'homepage' %}" target="_blank">SixersClub.com</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--/ End Copyright -->
+    </footer>
+    <!-- jquery Min JS -->
+    <script src="{% static 'home/js/jquery.min.js' %}"></script>
+    <!-- jquery Migrate JS -->
+    <script src="{% static 'home/js/jquery-migrate-3.0.0.js' %}"></script>
+    <!-- jquery Ui JS -->
+    <script src="{% static 'home/js/jquery-ui.min.js' %}"></script>
+    <!-- Easing JS -->
+    <script src="{% static 'home/js/easing.js' %}"></script>
+    <!-- Color JS -->
+    <script src="{% static 'home/js/colors.js' %}"></script>
+    <!-- Popper JS -->
+    <script src="{% static 'home/js/popper.min.js' %}"></script>
+    <!-- Bootstrap Datepicker JS -->
+    <script src="{% static 'home/js/bootstrap-datepicker.js' %}"></script>
+    <!-- Jquery Nav JS -->
+    <script src="{% static 'home/js/jquery.nav.js' %}"></script>
+    <!-- Slicknav JS -->
+    <script src="{% static 'home/js/slicknav.min.js' %}"></script>
+    <!-- ScrollUp JS -->
+    <script src="{% static 'home/js/jquery.scrollUp.min.js' %}"></script>
+    <!-- Niceselect JS -->
+    <script src="{% static 'home/js/niceselect.js' %}"></script>
+    <!-- Tilt Jquery JS -->
+    <script src="{% static 'home/js/tilt.jquery.min.js' %}"></script>
+    <!-- Owl Carousel JS -->
+    <script src="{% static 'home/js/owl-carousel.js' %}"></script>
+    <!-- counterup JS -->
+    <script src="{% static 'home/js/jquery.counterup.min.js' %}"></script>
+    <!-- Steller JS -->
+    <script src="{% static 'home/js/steller.js' %}"></script>
+    <!-- Wow JS -->
+    <script src="{% static 'home/js/wow.min.js' %}"></script>
+    <!-- Magnific Popup JS -->
+    <script src="{% static 'home/js/jquery.magnific-popup.min.js' %}"></script>
+    <!-- Counter Up CDN JS -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="{% static 'home/js/bootstrap.min.js' %}"></script>
+    <!-- Main JS -->
+    <script src="{% static 'home/js/main.js' %}"></script>
+  </body>
 </html>

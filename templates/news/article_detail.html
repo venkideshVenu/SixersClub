@@ -1,10 +1,29 @@
 {% extends 'news/base.html' %}
 
-{% block content %}
-<h2>{{ article.title }}</h2>
-<p><strong>Subject:</strong> {{ article.subject }}</p>
-<p><strong>Posted by:</strong> {{ article.author.username }} on {{ article.created_at }}</p>
-
-<p>{{ article.content }}</p>
-<a href="{% url 'article_list' %}" class="btn btn-secondary">Back to Articles</a>
+{% block body_block %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10 col-sm-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title">{{ article.title }}</h2>
+                    <p class="card-text">
+                        <strong>Subject:</strong> {{ article.subject }}
+                    </p>
+                    <p class="card-text">
+                        <strong>Posted by:</strong> {{ article.author.username }} 
+                        <span class="text-muted">on {{ article.created_at|date:"F j, Y" }}</span>
+                    </p>
+                    <hr>
+                    <div class="article-content">
+                        <p>{{ article.content }}</p>
+                    </div>
+                </div>
+                <div class="card-footer text-right">
+                    <a href="{% url 'article_list' %}" class="btn btn-secondary">Back to Articles</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
