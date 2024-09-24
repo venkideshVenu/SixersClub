@@ -5,7 +5,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from .forms import CustomUserCreationForm, LoginForm
 from .models import CustomUser
 from django.contrib import messages
-
+from tournaments.models import Tournament
 
 def register_type(request):
     return render(request, 'accounts/register_types.html', context={})
@@ -95,10 +95,11 @@ def logout_view(request):
 
 @login_required
 def team_manager_dashboard(request):
+    tournaments = Tournament.objects.all()
     if request.user.user_type != 'team_manager':
         messages.error(request, "You can;t access this dashboard.")
         return redirect('login')  # Redirect to an login access page or home page
-    return render(request, 'accounts/team_manager_dashboard.html')
+    return render(request, 'accounts/team_manager_dashboard.html',{'tournaments': tournaments})
 
 @login_required
 def player_dashboard(request):

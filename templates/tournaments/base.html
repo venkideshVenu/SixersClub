@@ -96,19 +96,33 @@
                   <nav class="navigation">
                     <ul class="nav menu">
                       <li ><a href="{% url 'homepage' %}">Home</a></li>
-                      <li class="active "><a href="{% url 'tournaments:tournament_list' %}">Tournament </a></li>
-                      <li><a href="{% url 'homepage' %}">Gallery</a></li>
-                      <li><a href="{% url 'homepage' %}">News</a></li>
+                      <li class="active" ><a href="{% url 'tournaments:tournament_list' %}">Tournament </a></li>
                       <li><a href="{% url 'contact' %}">Contact Us</a></li>
                       <li><a href="{% url 'about' %}">About Us</a></li>
+                      <li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                      <li>{% if user.id is not none %}
+                            {% if user.user_type == 'team_manager' %}
+                            <a href="{% url 'team_manager_dashboard' %}">{{ user.username }}</a>
+                            {% elif user.user_type == 'player' %}
+                            <a href="{% url 'player_dashboard' %}">{{ user.username }}</a>
+                            {% elif user.user_type == 'fan' %}
+                            <a href="{% url 'fan_dashboard' %}">{{ user.username }}</a>
+                            {% endif %}
+                        {% else %}
+                        <a>Guest User</a>
+                        {% endif %}</li>
                     </ul>
                   </nav>
                 </div>
-                <!--/ End Main Menu -->
-              </div>
+              </div>              
               <div class="col-lg-2 col-12">
+                
                 <div class="get-quote">
-                  <a href="{% url 'login' %}" class="btn">Login</a>
+                  {% if user.id is none %}
+                  <a href="{% url 'login' %}" class="btn" >Login</a>
+                  {% else %}
+                  <a href="{% url 'logout' %}" class="btn" >Logout</a>
+                  {% endif %}
                 </div>
               </div>
             </div>
@@ -128,25 +142,22 @@
             <!-- About Us Section -->
             <div class="col-lg-3 col-md-6 col-12">
               <div class="single-footer">
-                <h2>About the Team</h2>
-                <p>
-                  We are passionate about the game of cricket. Our mission is to
-                  provide fans with the latest news, match updates, and insights
-                  from the cricket world.
-                </p>
+                <h2>About SixersClub</h2>
+                <p>SixersClub is the ultimate platform for cricket enthusiasts. From organizing cricket tournaments to tracking your favorite players, we bring the cricketing community together.</p>
+                <p>Stay tuned for updates on upcoming matches, tournaments, and cricket news!</p>
                 <!-- Social -->
                 <ul class="social">
                   <li>
-                    <a href="#"><i class="icofont-facebook"></i></a>
+                    <a href="notfound"><i class="icofont-facebook"></i></a>
                   </li>
                   <li>
-                    <a href="#"><i class="icofont-twitter"></i></a>
+                    <a href="notfound"><i class="icofont-twitter"></i></a>
                   </li>
                   <li>
-                    <a href="#"><i class="icofont-instagram"></i></a>
+                    <a href="notfound"><i class="icofont-instagram"></i></a>
                   </li>
                   <li>
-                    <a href="#"><i class="icofont-youtube"></i></a>
+                    <a href="notfound"><i class="icofont-youtube"></i></a>
                   </li>
                 </ul>
                 <!-- End Social -->
@@ -159,72 +170,15 @@
                 <div class="row">
                   <div class="col-lg-6 col-md-6 col-12">
                     <ul>
-                      <li>
-                        <a href="{% url 'homepage' %}"
-                          ><i class="fa fa-caret-right" aria-hidden="true"></i
-                          >Home</a
-                        >
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><i class="fa fa-caret-right" aria-hidden="true"></i
-                          >Teams</a
-                        >
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><i class="fa fa-caret-right" aria-hidden="true"></i
-                          >Matches</a
-                        >
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><i class="fa fa-caret-right" aria-hidden="true"></i
-                          >Rankings</a
-                        >
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><i class="fa fa-caret-right" aria-hidden="true"></i
-                          >Live Scores</a
-                        >
-                      </li>
+                      <li><a href="{% url 'homepage' %}"><i class="fa fa-caret-right" aria-hidden="true"></i>Home</a></li>
+                      <li><a href="{% url 'about' %}"><i class="fa fa-caret-right" aria-hidden="true"></i>About Us</a></li>
+                      <li><a href="{% url 'contact' %}"><i class="fa fa-caret-right" aria-hidden="true"></i>Contact Us</a></li>
+                      <li><a href="{% url 'tournaments:tournament_list' %}"><i class="fa fa-caret-right" aria-hidden="true"></i>Tournaments</a></li>
+                      <li><a href="{% url 'notfound' %}"><i class="fa fa-caret-right" aria-hidden="true"></i>Leaderboards</a></li>
+    
                     </ul>
                   </div>
-                  <div class="col-lg-6 col-md-6 col-12">
-                    <ul>
-                      <li>
-                        <a href="#"
-                          ><i class="fa fa-caret-right" aria-hidden="true"></i
-                          >Stats</a
-                        >
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><i class="fa fa-caret-right" aria-hidden="true"></i
-                          >Fixtures</a
-                        >
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><i class="fa fa-caret-right" aria-hidden="true"></i
-                          >News</a
-                        >
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><i class="fa fa-caret-right" aria-hidden="true"></i
-                          >Gallery</a
-                        >
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><i class="fa fa-caret-right" aria-hidden="true"></i
-                          >Contact Us</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
+                  
                 </div>
               </div>
             </div>
@@ -284,7 +238,7 @@
               <div class="copyright-content">
                 <p>
                   © Copyright 2024 | All Rights Reserved by
-                  <a href="#" target="_blank">SixersClub.com</a>
+                  <a href="{% url 'homepage' %}" target="_blank">SixersClub.com</a>
                 </p>
               </div>
             </div>
@@ -293,7 +247,6 @@
       </div>
       <!--/ End Copyright -->
     </footer>
-
     <!-- jquery Min JS -->
     <script src="{% static 'home/js/jquery.min.js' %}"></script>
     <!-- jquery Migrate JS -->

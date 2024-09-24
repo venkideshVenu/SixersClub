@@ -2,12 +2,104 @@
 {% load static %}
 {% block body_block %}
 
-<h2>Welcome, {{ request.user.username }} (Team Manager)</h2>
-<p>Here you can manage your team and view upcoming tournaments.</p>
-<form method="post" action="{% url 'logout' %}">
-    {% csrf_token %}
+<section class="dashboard section">
+    <div class="container">
+      <div class="dashboard-inner">
+        <h1 class="dashboard-title">Captain Dashboard</h1><br><br><br><br><br><br><br><br>
+        
+        <div class="row">
+          <!-- Sidebar Menu -->
+          <div class="col-lg-3 col-md-4 col-12">
+            
+          </div>
+  
+          <!-- Main Content Area -->
+          <div class="col-lg-9 col-md-8 col-12">
+            <!-- Dashboard Overview -->
+            <div class="dashboard-overview">
+                <br><h2>Welcome, Captain!</h2><br>
+              <p>Here is your current team and tournament information.</p>
+            </div>
+  
+            <!-- Team Management Section -->
+            <div class="team-management">
+                <br><h3>My Team</h3><br>
+                {% if team %}
+                <h4>Team Name: {{ team.name }}</h4>
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Player Name</th>
+                      <th>Role</th>
+                      <th>Experience Level</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for player in team.players.all %}
+                    <tr>
+                      <td>{{ player.username }}</td>
+                      <td>{{ player.role }}</td>
+                      <td>{{ player.experience_level }}</td>
+                      <td>
+                        <a href="{% url 'notfound' player.id %}" class="btn btn-danger">Remove</a>
+                      </td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+                <a href="{% url 'notfound' %}" class="btn btn-primary">Add Players</a>
+              {% else %}
+                <p>No team registered yet.</p>
+                <a href="{% url 'notfound' %}" class="btn btn-primary">Register a Team</a>
+              {% endif %}
+            </div>
+  
+            <!-- Tournament Section -->
+            <div class="tournament-section mt-5">
+              <h3>Upcoming Tournaments</h3>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Tournament Name</th>
+                    <th>Type</th>
+                    <th>Deadline</th>
+                    <th>Fee</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for tournament in tournaments %}
+                  <tr>
+                    <td>{{ tournament.name }}</td>
+                    <td>{{ tournament.tournament_type }}</td>
+                    <td>{{ tournament.registration_deadline }}</td>
+                    <td>{{ tournament.registration_fee }}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              <a href="{% url 'notfound' %}" class="btn btn-success">Register for Tournament</a>
+            </div>
+  
+            <!-- Player Registration Section -->
+            <div class="player-registration mt-5">
+              <h3>Player Registrations</h3>
+              <p>You can view the players who have registered for your team.</p>
+              {% if registered_players %}
+                <ul>
+                  {% for player in registered_players %}
+                    <li>{{ player.username }} (ID: {{ player.player_id }}) - {{ player.role }}</li>
+                  {% endfor %}
+                </ul>
+              {% else %}
+                <p>No players registered for the tournament yet.</p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <button type="submit" class="btn btn-primary">log Out</button>
-</form>
 
 {% endblock %}
