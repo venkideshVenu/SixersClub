@@ -20,41 +20,7 @@
                 <br><h2>Welcome, Captain!</h2><br>
               <p>Here is your current team and tournament information.</p>
             </div>
-  
-            <!-- Team Management Section -->
-            <div class="team-management">
-                <br><h3>My Team</h3><br>
-                {% if team %}
-                <h4>Team Name: {{ team.name }}</h4>
-                <table class="table table-striped">
-                  <thead>
-                    <tr>
-                      <th>Player Name</th>
-                      <th>Role</th>
-                      <th>Experience Level</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {% for player in team.players.all %}
-                    <tr>
-                      <td>{{ player.username }}</td>
-                      <td>{{ player.role }}</td>
-                      <td>{{ player.experience_level }}</td>
-                      <td>
-                        <a href="{% url 'notfound' player.id %}" class="btn btn-danger">Remove</a>
-                      </td>
-                    </tr>
-                    {% endfor %}
-                  </tbody>
-                </table>
-                <a href="{% url 'notfound' %}" class="btn btn-primary">Add Players</a>
-              {% else %}
-                <p>No team registered yet.</p>
-                <a href="{% url 'tournaments:tournament_list' %}" class="btn btn-primary">Register a Team</a>
-              {% endif %}
-            </div>
-  
+ 
             <!-- Tournament Section -->
             <div class="tournament-section mt-5">
               <h3>Upcoming Tournaments</h3>
@@ -78,7 +44,7 @@
                   {% endfor %}
                 </tbody>
               </table>
-              <a href="{% url 'notfound' %}" class="btn btn-success">Register for Tournament</a>
+              <a href="{% url 'tournaments:tournament_list' %}" class="btn btn-success">Register for Tournament</a>
             </div>
   
             <!-- Player Registration Section -->
