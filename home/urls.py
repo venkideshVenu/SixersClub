@@ -9,4 +9,5 @@ urlpatterns = [
     path('notfound/', views.errorpage, name='notfound'),
     path('twenty20/', views.twenty20, name='twenty20'),
     path('odi/', views.odi, name='odi'),
+    path('testChampionship/', views.test, name='test'),
 ]

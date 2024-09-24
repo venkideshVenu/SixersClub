@@ -21,8 +21,8 @@ def odi(request):
     return render(request, 'home/odi.html')
 
 
-def errorpage(request):
-    return render(request, 'home/404.html')
+def test(request):
+    return render(request, 'home/testChampionship.html')
 
 
 
