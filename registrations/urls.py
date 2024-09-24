@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import team_registration_view, individual_registration_view
+from . import views
 
 urlpatterns = [
-    path('team_registration/', team_registration_view, name='team_registration'),
-    path('individual_registration/', individual_registration_view, name='individual_registration'),
+    path('team_register/<int:tournament_id>/', views.team_registration_view, name='team_register'),
+    path('player_register/<int:tournament_id>/', views.player_registration_view, name='player_register'),
 ]
