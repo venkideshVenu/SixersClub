@@ -34,7 +34,7 @@ Follow these steps to set up and run the project locally.
 First, clone the GitHub repository to your local machine:
 
 ```bash
-git clone https://github.com/yourusername/sixersclub.git
+git clone https://github.com/venkideshVenu/SixersClub.git
 cd sixersclub
 ```
 

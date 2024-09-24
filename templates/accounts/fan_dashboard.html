@@ -3,89 +3,22 @@
 {% load static %}
 {% block body_block %}
 
-
-
-
-
 <section class="fan-dashboard section">
     <div class="container">
-      <h2 class="dashboard-title">Welcome to Your Fan Dashboard</h2>
-      <p class="dashboard-subtitle">Stay connected with your favorite teams and players</p>
+      <h2 class="dashboard-title">Welcome to Your Fan Dashboard</h2><br>
+      <p class="dashboard-subtitle">Stay connected with your favorite teams and players</p><br>
   
       <!-- Latest Tournament Updates -->
       <div class="dashboard-section">
-        <h3>Latest Tournament Updates</h3>
+        <h3>Latest Tournament Updates</h3><br>
         <ul class="tournament-updates">
           <li><a href="#">Sixers Premier League 2024 - Quarterfinals Recap</a></li>
           <li><a href="#">Top Performers of the Week: Batsman & Bowler Highlights</a></li>
           <li><a href="#">Fan Voting Now Open for 'Player of the Month'</a></li>
-          <li><a href="#">Exclusive Interviews: Catch up with the Sixers Stars</a></li>
+          <li><a href="#">Exclusive Interviews: Catch up with the Sixers Stars</a></li><br>
         </ul>
       </div>
-  
-      <!-- Favorite Team Section -->
-      <div class="dashboard-section">
-        <h3>Your Favorite Team: Sixers United</h3>
-        <div class="team-overview">
-          <img src="{% static 'images/sixers-team-logo.png' %}" alt="Sixers United" class="team-logo">
-          <p><strong>Current Ranking:</strong> 2nd</p>
-          <p><strong>Recent Match:</strong> Won against Royals by 10 runs</p>
-          <a href="#" class="btn">View Full Team Profile</a>
-        </div>
-      </div>
-  
-      <!-- Player Watchlist -->
-      <div class="dashboard-section">
-        <h3>Player Watchlist</h3>
-        <ul class="player-watchlist">
-          <li><a href="#">John Doe - Batsman (Sixers United)</a></li>
-          <li><a href="#">Jane Smith - All-Rounder (Sixers United)</a></li>
-          <li><a href="#">Mike Richards - Bowler (Royals)</a></li>
-        </ul>
-        <a href="#" class="btn">See All Players</a>
-      </div>
-  
-      <!-- Fan Engagement Section -->
-      <div class="dashboard-section">
-        <h3>Fan Engagement</h3>
-        <p>Vote for your favorite player, participate in fan polls, and get a chance to win exclusive merchandise.</p>
-        <a href="#" class="btn">Vote Now</a>
-        <a href="#" class="btn">Take Part in Polls</a>
-      </div>
-  
-      <!-- News & Blog -->
-      <div class="dashboard-section">
-        <h3>News & Blog</h3>
-        <ul class="fan-news">
-          <li><a href="#">Top 10 Memorable Moments in Sixers History</a></li>
-          <li><a href="#">Behind the Scenes: What Players Do Off the Field</a></li>
-          <li><a href="#">Fan Stories: Sixers Club Members Share Their Journey</a></li>
-        </ul>
-        <a href="#" class="btn">Read More</a>
-      </div>
-  
-      <!-- Footer with Links -->
-      <div class="dashboard-section">
-        <h3>Fan Resources</h3>
-        <ul class="fan-resources">
-          <li><a href="#">Merchandise Store</a></li>
-          <li><a href="#">Fan Club Registration</a></li>
-          <li><a href="#">Live Match Schedules</a></li>
-          <li><a href="#">Exclusive Sixers Content</a></li>
-        </ul>
-      </div>
+
     </div>
   </section>
-  
-
-
-<h2>Welcome, {{ request.user.username }} (Fan)</h2>
-<p>Here you can view the latest tournaments and scores.</p>
-<form method="post" action="{% url 'logout' %}">
-    {% csrf_token %}
-
-    <button type="submit" class="btn btn-primary">log Out</button>
-</form>
-
-
 {% endblock %}
