@@ -6,12 +6,12 @@ from .forms import ArticleForm
 @login_required
 def article_list(request):
     articles = Article.objects.all().order_by('-created_at')
-    return render(request, 'news_and_updates/article_list.html', {'articles': articles})
+    return render(request, 'news/article_list.html', {'articles': articles})
 
 @login_required
 def article_detail(request, article_id):
     article = get_object_or_404(Article, id=article_id)
-    return render(request, 'news_and_updates/article_detail.html', {'article': article})
+    return render(request, 'news/article_detail.html', {'article': article})
 
 @login_required
 def create_article(request):
@@ -24,4 +24,4 @@ def create_article(request):
             return redirect('article_list')
     else:
         form = ArticleForm()
-    return render(request, 'news_and_updates/create_article.html', {'form': form})
+    return render(request, 'news/create_article.html', {'form': form})

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Create a New Article</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="title">Title</label>
+        {{ form.title }}
+    </div>
+    <div class="form-group">
+        <label for="subject">Subject</label>
+        {{ form.subject }}
+    </div>
+    <div class="form-group">
+        <label for="content">Content</label>
+        {{ form.content }}
+    </div>
+    <div class="form-group">
+        <label for="photo">Photo</label>
+        {{ form.photo }}
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+</form>
+{% endblock %}

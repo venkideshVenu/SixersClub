@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{{ article.title }}</h2>
+<p><strong>Subject:</strong> {{ article.subject }}</p>
+<p><strong>Posted by:</strong> {{ article.author.username }} on {{ article.created_at }}</p>
+<img src="{{ article.photo.url }}" class="img-fluid mb-3" alt="Article Image">
+<p>{{ article.content }}</p>
+<a href="{% url 'article_list' %}" class="btn btn-secondary">Back to Articles</a>
+{% endblock %}
