@@ -1,10 +1,162 @@
+{% extends 'accounts/base.html' %}{% load static %} {% block body_block %}
+<style>
+    .player-dashboard {
+        padding: 40px 0;
+    }
+    
+    .text-center {
+        text-align: center;
+    }
+    
+    .player-stats .stat-item {
+        padding: 20px;
+        background-color: #f8f9fa;
+        margin-bottom: 15px;
+        border-radius: 8px;
+    }
+    
+    .player-stats .stat-item h4 {
+        font-size: 18px;
+    }
+    
+    .player-stats .stat-item p {
+        font-size: 22px;
+        font-weight: bold;
+    }
+    
+    .recent-matches, .training-tips, .tournaments-list, .player-resources, .player-news {
+        padding: 0;
+    }
+    
+    .recent-matches li, .training-tips li, .tournaments-list li, .player-resources li, .player-news li {
+        padding: 15px;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .recent-matches li a, .training-tips li a, .tournaments-list li a, .player-resources li a, .player-news li a {
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bold;
+    }
+    
+    .team-logo {
+        max-width: 150px;
+        margin-bottom: 20px;
+    }
+    
+    .dashboard-section {
+        margin-bottom: 40px;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+    
+
+</style>
+<section class="player-dashboard section">
+    <div class="container">
+      <h2 class="dashboard-title text-center">Welcome to Your Player Dashboard</h2>
+      <p class="dashboard-subtitle text-center">Track your performance, manage your profile, and stay updated</p>
+      <p class="dashboard-subtitle text-center">Player ID : {{user.player_id }} </p>
+  
+      <!-- Player Stats Summary -->
+      <div class="dashboard-section"><br>
+        <h3>Your Performance Overview</h3><br>
+        <div class="player-stats row text-center">
+          <div class="stat-item col-md-3">
+            <h4>Matches Played</h4>
+            <p>25</p>
+          </div>
+          <div class="stat-item col-md-3">
+            <h4>Total Runs</h4>
+            <p>850</p>
+          </div>
+          <div class="stat-item col-md-3">
+            <h4>Wickets Taken</h4>
+            <p>35</p>
+          </div>
+          <div class="stat-item col-md-3">
+            <h4>Average Score</h4>
+            <p>56.7</p>
+          </div>
+        </div>
+        <div class="text-center">
+          <a href="#" class="btn btn-primary mt-3">View Full Stats</a><br>
+        </div>
+      </div>
+  
+      <!-- Recent Matches -->
+      <div class="dashboard-section">
+        <h3>Recent Matches</h3><br>
+        <ul class="recent-matches list-group">
+          <li class="list-group-item">
+            <strong>Sixers United vs Royals</strong> - <em>Scored 76 runs, took 2 wickets</em>
+            <a href="#" class="float-right">Match Details</a>
+          </li>
+          <li class="list-group-item">
+            <strong>Sixers United vs Warriors</strong> - <em>Scored 45 runs, no wickets</em>
+            <a href="#" class="float-right">Match Details</a>
+          </li>
+          <li class="list-group-item">
+            <strong>Sixers United vs Mavericks</strong> - <em>Scored 90 runs, 3 wickets</em>
+            <a href="#" class="float-right">Match Details</a>
+          </li>
+        </ul>
+      </div>
+  
+      <!-- Training and Fitness -->
+      <div class="dashboard-section">
+        <h3>Training & Fitness</h3>
+        <p>Keep track of your training schedule, workouts, and fitness tips tailored for top performance.</p><br>
+        <ul class="training-tips list-group">
+          <li class="list-group-item"><a href="#">Weekly Training Schedule</a></li>
+          <li class="list-group-item"><a href="#">Top Fitness Tips for All-Rounders</a></li>
+          <li class="list-group-item"><a href="#">Cricket-Specific Exercises to Improve Endurance</a></li>
+        </ul>
+        <div class="text-center">
+          <a href="#" class="btn btn-primary mt-3">View Training Programs</a>
+        </div>
+      </div>
+  
+      <!-- Upcoming Tournaments -->
+      <div class="dashboard-section">
+        <h3>Upcoming Tournaments</h3><br>
+        <ul class="tournaments-list list-group">
+          <li class="list-group-item"><strong>Sixers Premier League 2024</strong> - Starts Oct 5th <a href="#" class="float-right">View Tournament</a></li>
+          <li class="list-group-item"><strong>National Cricket Championship</strong> - Starts Nov 20th <a href="#" class="float-right">View Tournament</a></li>
+          <li class="list-group-item"><strong>State Level League</strong> - Starts Dec 10th <a href="#" class="float-right">View Tournament</a></li>
+        </ul>
+      </div>
+  
+      <!-- Player Resources -->
+      <div class="dashboard-section">
+        <h3>Player Resources</h3>
+        <ul class="player-resources list-group">
+          <li class="list-group-item"><a href="#">Player Handbook</a></li>
+          <li class="list-group-item"><a href="#">Training Videos</a></li>
+          <li class="list-group-item"><a href="#">Cricket Strategy & Tactics</a></li>
+          <li class="list-group-item"><a href="#">Mental Toughness Guides</a></li>
+        </ul>
+      </div>
+  
+
+  
+      <!-- News & Updates -->
+      <div class="dashboard-section">
+        <h3>News & Updates</h3>
+        <ul class="player-news list-group">
+          <li class="list-group-item"><a href="#">How to Improve Your Batting Skills</a></li>
+          <li class="list-group-item"><a href="#">Player Interviews: Rising Stars of the Sixers</a></li>
+          <li class="list-group-item"><a href="#">Top 10 Training Drills for Bowlers</a></li>
+        </ul>
+        <div class="text-center">
+          <a href="#" class="btn btn-primary mt-3">Read More</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
 
-<h2>Welcome, {{ request.user.username }} (Player)</h2>
-<p>Here you can view your stats and upcoming tournaments.</p>
-
-<form method="post" action="{% url 'logout' %}">
-    {% csrf_token %}
-
-    <button type="submit" class="btn btn-primary">log Out</button>
-</form>
+{% endblock %}
