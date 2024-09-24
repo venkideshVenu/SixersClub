@@ -17,8 +17,8 @@ def twenty20(request):
     return render(request, 'home/twenty20.html')
 
 
-def errorpage(request):
-    return render(request, 'home/404.html')
+def odi(request):
+    return render(request, 'home/odi.html')
 
 
 def errorpage(request):

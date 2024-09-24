@@ -1,0 +1,109 @@
+{% extends 'home/base.html' %}{% load static %} {% block body_block %}
+
+
+<div class="breadcrumbs overlay">
+    <div class="container">
+      <div class="bread-inner">
+        <div class="row">
+          <div class="col-12">
+            <h2>One Day Internationals (ODI} Tournament </h2>
+            <ul class="bread-list">
+              <li><a href="{% url 'homepage' %}">Home</a></li>
+              <li><i class="icofont-simple-right"></i></li>
+              <li class="active">ODI</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="tournament-details section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <img src="{% static 'home/images/odi.jpg' %}" class="img-fluid" alt="ODI Cricket">
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <h3>Overview of One Day International (ODI) Cricket</h3>
+                <p>One Day International (ODI) cricket is a limited-overs format of the game where each team faces a fixed number of overs, usually 50. This format blends the longer, strategic elements of Test cricket with the fast-paced excitement of limited overs, making it one of the most popular forms of the game globally. ODI matches are typically played within a single day, offering fans a full-day experience of top-tier cricket action.</p>
+            </div>
+        </div>
+        
+        <div class="row mt-5">
+            <div class="col-lg-12">
+                <h3 class="text-center">Key Features of ODI Cricket</h3>
+                <ul class="list-unstyled">
+                    <li><strong>50 Overs Per Side:</strong> Each team bats for a maximum of 50 overs, giving them more time compared to T20, but still ensuring a limited timeframe for strategic play.</li>
+                    <li><strong>Balance Between Bat and Ball:</strong> The format allows for a balanced contest between aggressive batting and skillful bowling, with periods of the game focusing on powerplay, consolidation, and acceleration phases.</li>
+                    <li><strong>Strategic Play:</strong> Teams often use a mixture of power hitting and calculated plays, with captains needing to manage resources carefully over the full 50 overs.</li>
+                    <li><strong>Duration:</strong> Matches last around 7-8 hours, typically split into two innings with a break in between.</li>
+                    <li><strong>Global Popularity:</strong> ODIs are a staple in international cricket, with marquee tournaments like the Cricket World Cup drawing massive audiences worldwide.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-lg-6 col-md-6">
+                <h4>How is an ODI Tournament Structured?</h4>
+                <p>ODI tournaments generally feature a group stage followed by knockout rounds. Teams are divided into groups, where they play round-robin matches against each other. The top teams from each group then progress to the knockout stages, including quarter-finals, semi-finals, and the grand final. The Cricket World Cup is the most prestigious ODI tournament, held every four years and showcasing the best cricketing nations.</p>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <h4>Rules & Regulations</h4>
+                <ul>
+                    <li><strong>Overs:</strong> Each team is limited to 50 overs per innings.</li>
+                    <li><strong>Powerplay:</strong> There are three powerplay phases during an ODI match, with fielding restrictions in place, encouraging more attacking play during these periods.</li>
+                    <li><strong>Bowling Restrictions:</strong> No bowler can bowl more than 10 overs in a match.</li>
+                    <li><strong>No Balls & Free Hits:</strong> Similar to T20, no-balls lead to free hits for the batting team, offering a chance for big runs without the risk of getting out.</li>
+                    <li><strong>Rain-Affected Matches:</strong> The Duckworth-Lewis-Stern (DLS) method is used to calculate revised targets in rain-interrupted matches.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-lg-12">
+                <h4 class="text-center">Famous ODI Tournaments</h4>
+                <p>ODI cricket has a rich history and is home to some of the most iconic tournaments in the sport:</p>
+                <ul class="list-unstyled">
+                    <li><strong>ICC Cricket World Cup:</strong> The premier event for ODI cricket, held every four years, it determines the world champion among the top international teams.</li>
+                    <li><strong>ICC Champions Trophy:</strong> Known as the "Mini World Cup," it features the top 8 ranked teams in the world and is held in a shorter format than the World Cup.</li>
+                    <li><strong>Asia Cup:</strong> A continental tournament featuring Asian cricketing giants like India, Pakistan, Sri Lanka, and Bangladesh, showcasing fierce regional rivalries.</li>
+                    <li><strong>Bilateral Series:</strong> ODI bilateral series between countries like India vs Australia, England vs South Africa, and New Zealand vs Pakistan offer thrilling encounters and test the mettle of international teams.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-lg-12 text-center">
+                <h4>Why Play in an ODI Tournament?</h4>
+                <p>Playing in an ODI tournament is an experience like no other. It provides players with the opportunity to demonstrate their stamina, technique, and strategic thinking over a full day of competitive cricket. The format offers a great balance between batting and bowling, giving players the chance to shine in both departments. ODI cricket has a storied history, with legends of the game leaving their mark in the format. Participating in an ODI tournament allows players to test themselves against high-quality opposition and be part of cricketing history.</p>
+                <p>Get ready to take part in one of cricket’s most prestigious formats!</p>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                {% if user.id is not none %}
+                    {% if user.user_type == 'team_manager' %}
+                    <a href="{% url 'team_registration' %} class="btn btn-primary mt-4" ">Register Now<i class="fa fa-cricket-bat"></i></a>
+                    {% elif user.user_type == 'player' %}
+                    <a href="{% url 'individual_registration' %}" class="btn btn-primary mt-4" >Register Now<i class="fa fa-cricket-bat"></i></a>
+                    {% elif user.user_type == 'fan' %}
+                    <a href="{% url 'login' %}"> Login as Player to Register <i class="fa fa-cricket-bat"></i></a>
+                    {% endif %}
+                {% else %}
+                <a href="{% url 'login' %}" class="btn btn-primary mt-4" >Login to Register<i class="fa fa-cricket-bat"></i></a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

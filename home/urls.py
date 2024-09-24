@@ -8,4 +8,5 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     path('notfound/', views.errorpage, name='notfound'),
     path('twenty20/', views.twenty20, name='twenty20'),
+    path('odi/', views.odi, name='odi'),
 ]
